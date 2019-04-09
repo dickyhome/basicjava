@@ -49,7 +49,7 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.4.5</version>
 				<configuration>
-					<imageName>nexus.i3datacenter.com:8083/jaguar-java</imageName>
+					<imageName>192.168.1.104:8083/jaguar-java</imageName>
 					<baseImage>java</baseImage>
 					<entryPoint>["java", "-jar", "/${project.build.finalName}.war"]</entryPoint>
 					<!-- copy the service's jar file from target into the root directory 
@@ -61,8 +61,8 @@
 							<include>${project.build.finalName}.war</include>
 						</resource>
 					</resources>
-					<serverId>Java-Artifact</serverId>
-					<registryUrl>http://nexus.i3datacenter.com:8081/repository/docker-private/v2</registryUrl>
+					<serverId>Artifact_JAR</serverId>
+					<registryUrl>http://192.168.1.104:8081/repository/docker-private/v2</registryUrl>
 				</configuration>
 			</plugin>
 
@@ -71,8 +71,8 @@
 	</build>
 <distributionManagement>
    <snapshotRepository>
-      <id>Java-Artifact</id>
-      <url>http://nexus.i3datacenter.com:8081/repository/Java-Artifact/</url>
+      <id>Artifact_JAR</id>
+      <url>http://192.168.1.104:8081/repository/Artifact_JAR/</url>
       <uniqueVersion>false</uniqueVersion>
    </snapshotRepository>
 </distributionManagement>
